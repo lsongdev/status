@@ -1,35 +1,45 @@
 import { ready } from 'https://lsong.org/scripts/dom.js';
 import { h, render, useState, useEffect } from 'https://lsong.org/scripts/components/react.js';
 
-const services = [
-  {
-    name: 'Google',
-    status: 'success'
-  },
-  {
-    name: 'Google DNS',
-    status: 'success'
-  }
-];
-
 const T = {
   success: 'Operational',
+  failed: 'Disrupted'
 };
 
-const Services = () => {
+const parseCSV = text => {
+  const [head, ...lines] = text.split('\n');
+  const columns = head.split(',');
+  return lines
+    .filter(Boolean)
+    .map(line => line.split(',').reduce((row, col, i) => {
+      row[columns[i]] = col;
+      return row;
+    }, {}));
+};
+
+const getReport = async () => {
+  const res = await fetch(`report.csv`);
+  const text = await res.text();
+  const data = parseCSV(text);
+  console.log(data);
+  return data;
+};
+
+const Services = ({ services }) => {
   return h('section', null, [
     h('h2', null, "Services"),
     h('ul', null, [
       services.map(service => h('li', { className: "service" }, [
         service.name,
-        h('span', { className: `service-${service.status}` }, T[service.status])
+        h('span', { className: `service-${service.result}` }, T[service.result])
       ]))
     ])
   ]);
 };
 
-const Status = () => {
-  return h('div', { className: "banner success-bg" }, "All Systems Operational")
+const Status = ({n}) => {
+  const status = (n > 0 ? "failed-bg" : 'success-bg');
+  return h('div', { className: `banner ${status}` }, n ? `${n} Outage(s)` : "All Systems Operational")
 }
 
 const Incidents = () => {
@@ -43,13 +53,13 @@ const Incidents = () => {
 };
 
 const App = () => {
-  const [] = useState();
+  const [services, setData] = useState([]);
   useEffect(() => {
-    console.log('App is ready');
+    getReport().then(setData);
   }, []);
   return h('div', null, [
-    h(Status),
-    h(Services),
+    h(Status, { n: services.filter(x => x.result === 'failed').length }),
+    h(Services, { services }),
     h(Incidents),
   ])
 }

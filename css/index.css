@@ -29,3 +29,7 @@
 .service-success {
   color: #52B86A;
 }
+
+.service-failed {
+  color: #E25D6A;
+}

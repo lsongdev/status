@@ -1,4 +1,4 @@
 time,name,type,host,expected,result
-1671537112,Google Website (IPv4),http4,https://baidu.com,200,success
-1671537122,Google Ping,ping,8.8.8.8,0,failed
-1671537122,Google DNS,port,8.8.8.8#53,0,success
+1671537536,Google Website (IPv4),http4,https://baidu.com,200,success
+1671537546,Google Ping,ping,8.8.8.8,0,failed
+1671537546,Google DNS,port,8.8.8.8#53,0,success

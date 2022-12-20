@@ -56,6 +56,7 @@ cat checks.csv | while read line; do
   expected=$(echo "$line" | cut -d',' -f4)
   check_service "$name" "$type"  "$host" "$expected"
   statuscode=$?
+  echo "$line $statuscode"
   timestamp=$(date +%s)
   result=""
   # verity status and write files

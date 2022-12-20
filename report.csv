@@ -1,8 +1,0 @@
-time,name,type,host,expected,result
-1671539601,lsong.org,http4,https://lsong.org,200,success
-1671539602,lsong.one,http4,https://lsong.one:8443,200,success
-1671539602,lsong.me,http6,https://lsong.me:8443,200,failed
-1671539602,dtting.me,port,r.dtting.me#22,0,failed
-1671539605,Google Website (IPv4),http4,https://baidu.com,200,success
-1671539615,Google Ping,ping,8.8.8.8,0,failed
-1671539615,Google DNS,port,8.8.8.8#53,0,success

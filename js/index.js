@@ -18,7 +18,7 @@ const parseCSV = text => {
 };
 
 const getReport = async () => {
-  const res = await fetch(`report.csv`);
+  const res = await fetch(`report.csv?t=` + Date.now());
   const text = await res.text();
   const data = parseCSV(text);
   console.log(data);

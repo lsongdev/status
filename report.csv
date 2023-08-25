@@ -1,10 +1,10 @@
 time,name,type,host,expected,result
-1692983457,lsong.org,http4,https://lsong.org,200,success
-1692983458,lsong.one,http4,https://lsong.one:8443,200,success
-1692983459,lsong.me,http6,https://lsong.me:8443,200,failed
-1692983459,dtting.me,port,r.dtting.me#22,0,failed
-1692983459,Google Website (IPv4),http4,https://google.com,200,success
-1692983459,Google Website (IPv6),http6,https://google.com,200,failed
-1692983463,Baidu.com,http,https://baidu.com,200,success
-1692983473,Cloudflre DNS,ping,1.1.1.1,0,failed
-1692983473,Google DNS,port,8.8.8.8#53,0,success
+1692984013,lsong.org,http4,https://lsong.org,200,success
+1692984014,lsong.one,http4,https://lsong.one:8443,200,success
+1692984014,lsong.me,http6,https://lsong.me:8443,200,failed
+1692984014,dtting.me,port,r.dtting.me#22,0,failed
+1692984014,Google Website (IPv4),http4,https://google.com,200,success
+1692984014,Google Website (IPv6),http6,https://google.com,200,failed
+1692984017,Baidu.com,http,https://baidu.com,200,success
+1692984027,Cloudflre DNS,ping,1.1.1.1,0,failed
+1692984027,Google DNS,port,8.8.8.8#53,0,success
